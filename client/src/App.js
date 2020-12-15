@@ -11,6 +11,7 @@ import PrivateRoute from './route/PrivateRoute';
 // pages
 import Landing from './pages/landing/Landing';
 import Home from './pages/home/Home';
+import Detail from './pages/detail/Detail';
 
 
 import {API, setAuthToken} from './config/api';
@@ -64,6 +65,8 @@ const App = () => {
         <Switch>
           <Route exact path="/auth" component={Landing} />
           <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute exact path="/detail/:postId" component={Detail} />
+
         </Switch>
       </div>
     </Router>
