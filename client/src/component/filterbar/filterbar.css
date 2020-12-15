@@ -1,0 +1,27 @@
+.filterbar-container {
+    width: 100%;
+}
+
+.filterbar-wrapper {
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;   
+}
+
+.filterbar-search {
+    justify-self: flex-end;
+}
+
+
+
+.filterbar-select span {
+    display: block;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
+    color: #000000;
+}

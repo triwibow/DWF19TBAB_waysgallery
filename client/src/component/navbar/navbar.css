@@ -1,0 +1,33 @@
+.navbar-container {
+    width: 100%;
+    border-bottom: 1px solid #E1E1E1;
+}
+
+.navbar-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;   
+}
+
+.navbar-logo {
+    width: 126px;
+    height: 83px;
+}
+
+.navbar-menu {
+    justify-self: end;
+}
+  
+
+.navbar-menu-list {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin-right: 0;
+}
+
+.navbar-menu button {
+    display: inline-block;
+}
