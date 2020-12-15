@@ -6,7 +6,7 @@ import {AppContext} from '../../context/AppContext';
 import { API, setAuthToken } from '../../config/api';
 
 const LoginModal = () => {
-    const router = useHistory()
+    const router = useHistory();
     const [state, dispatch] = useContext(AppContext);
     const [error, setError] = useState({
         status: false,
