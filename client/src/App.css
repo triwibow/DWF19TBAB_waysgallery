@@ -1,1 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #f3f3f3;
+}
 
+.button-primary {
+    padding: 10px 20px;
+    border: none;
+    background: #2FC4B2;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 25px;
+    /* identical to box height */
+    color: #FFFFFF;
+    position: relative;
+    z-index: 101;
+}
+
+.button-secondary {
+    padding: 10px 20px;
+    border: none;
+    background: #E7E7E7;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 25px;
+    /* identical to box height */
+    color: #000000;
+    position: relative;
+    z-index: 101;
+
+}
