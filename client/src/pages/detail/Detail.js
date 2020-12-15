@@ -42,7 +42,6 @@ const Detail = () => {
     return(
         <Fragment>
             <NavBar />
-            <FilterBar />
             <div className="main-container">
                 {!post || error? (
                     <h1>Server error</h1>

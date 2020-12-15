@@ -2,9 +2,10 @@ const multer = require('multer');
 
 const upload = (fields) => {
 
+    
     const storage = multer.diskStorage({
         destination: (req, file, cb) => {
-            
+            console.log(file);        
             switch(file.fieldname){
                 case "photo":
                     cb(null, 'uploads/tmp/photo');

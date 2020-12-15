@@ -115,6 +115,7 @@ const addPost = async (req, res) => {
 
         const { id } = req.user;
         const { body, files } = req;
+       
 
         const schema = Joi.object({
             title: Joi.string().required(),

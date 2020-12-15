@@ -17,6 +17,7 @@ import Detail from './pages/detail/Detail';
 import {API, setAuthToken} from './config/api';
 import { AppContext } from './context/AppContext';
 import { useContext, useEffect } from 'react';
+import Upload from './pages/upload/Upload';
 
 const App = () => {
   const [state, dispatch] = useContext(AppContext);
@@ -66,6 +67,7 @@ const App = () => {
           <Route exact path="/auth" component={Landing} />
           <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/detail/:postId" component={Detail} />
+          <PrivateRoute exact path="/upload" component={Upload} />
 
         </Switch>
       </div>

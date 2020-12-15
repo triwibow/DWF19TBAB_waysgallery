@@ -16,9 +16,7 @@ const Home = () => {
             }
 
             setPosts(response.data.data.posts);
-
             
-
         } catch(err){
             console.log(err);
         }
