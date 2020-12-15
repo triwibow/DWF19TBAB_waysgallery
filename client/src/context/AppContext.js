@@ -29,10 +29,8 @@ const reducer = (state, action) => {
                 user: localStorage.setItem('user', JSON.stringify({
                     id: action.payload.id,
                     email: action.payload.email,
-                    chanelName: action.payload.chanelName,
-                    description: action.payload.description,
-                    thumbnail: action.payload.thumbnail,
-                    photo: action.payload.photo
+                    fullName: action.payload.fullName,
+                    avatar: action.payload.avatar
                 }))
             }
         case 'LOAD_SUBSCRIBTION':

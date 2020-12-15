@@ -16,7 +16,7 @@ const PrivateRoute = ({ component: Component, ...rest}) => {
                     (<h1>Loading ...</h1>) : 
                 login? 
                     (<Component {...props} />) : 
-                    (<Redirect to="/login" />)
+                    (<Redirect to="/auth" />)
             }
         />
     );
