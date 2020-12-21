@@ -16,6 +16,9 @@ const upload = (fields) => {
                 case "project":
                     cb(null, 'uploads/tmp/project');
                     break;
+                case "avatar":
+                    cb(null, 'uploads/tmp/avatar');
+                    break;
                 default:
                     break;
             }

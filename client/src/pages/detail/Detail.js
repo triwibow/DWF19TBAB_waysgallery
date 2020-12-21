@@ -1,12 +1,14 @@
 import './detail.css';
 import NavBar from '../../component/navbar/NavBar';
-import FilterBar from '../../component/filterbar/FilterBar';
 import { useState, useEffect, Fragment } from 'react';
 import {useParams} from 'react-router-dom';
 import { API } from '../../config/api';
 
+import {Link} from 'react-router-dom';
+
 
 const Detail = () => {
+    const currentUser = JSON.parse(localStorage.getItem('user'));
     const [loading, setLoading] = useState(false);
     const { postId } = useParams();
     const [post, setPost] = useState();
@@ -56,12 +58,18 @@ const Detail = () => {
                             </div>
                             <div className="detail-title">
                                 <span>{post.title}</span>
-                                <span>{post.createdBy.fullName}</span>
+                                <Link to={`/user/${post.createdBy.id}`} className="link">
+                                    <span>{post.createdBy.fullName}</span>
+                                </Link>
                             </div>
-                            <div className="detail-nav">
-                                <button>Follow</button>
-                                <button>Hire</button>
-                            </div>
+                            {currentUser.id != post.createdBy.id ? 
+                                <div className="detail-nav">
+                                    <button className="button-secondary">Follow</button>
+                                    <Link to={`/hired/${post.createdBy.id}`} className="link">
+                                        <button className="button-primary">Hire</button>
+                                    </Link>
+                                </div>:null
+                            }
                         </div>
                         <div className="detail-body">
                             <div className="detail-image">
@@ -70,7 +78,12 @@ const Detail = () => {
                             <div className="detail-sub-image">
                                 {post.photos.map(photo => {
                                     
-                                    return post.photos.indexOf(photo) !==0 ?<img src={`http://localhost:5000/photo/${photo.image}`} alt="detail"/>:""
+                                    return post.photos.indexOf(photo) !==0 ?
+                                        <img
+                                            key={photo.id} 
+                                            src={`http://localhost:5000/photo/${photo.image}`} 
+                                            alt="detail"/>
+                                        :""
                                 })}
                             </div>
                         </div>

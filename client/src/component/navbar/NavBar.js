@@ -1,18 +1,37 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './navbar.css';
 import logo from '../../assets/icon/logo.svg';
-import {useContext} from 'react';
-import {AppContext} from '../../context/AppContext';
+import { useState, useEffect} from 'react';
+import Dropdown from '../dropdown/Dropdown';
 
 const NavBar = () => {
-    const [state, dispatch] = useContext(AppContext);
-    
-    const handleClick = () => {
-        dispatch({
-            type:"LOGOUT"
-        })
+    const [loading, setLoading] = useState(true);
+    const currentUser = JSON.parse(localStorage.getItem('user'));
+    const pathName = window.location.pathname;
+    const [isDropdown, setDropdown] = useState(false);
+    const router = useHistory();
+
+    const handleDropdown = () => {
+        isDropdown? setDropdown(false):setDropdown(true);
     }
 
+    const getUser = () => {
+        if(!currentUser){
+            setLoading(true);
+        } else {
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        getUser();
+    },[currentUser])
+
+    useEffect(() => {
+        return router.listen(() => {
+            setDropdown(false);
+        })
+    }, [router]);
     return(
         <div className="navbar-container">
             <div className="navbar-wrapper">
@@ -30,7 +49,10 @@ const NavBar = () => {
                         </Link>
 
                         <li className="navbar-menu-item">
-                            <button className="button-secondary" onClick={handleClick}>Logout</button>
+                            <button className="navbar-menu-button" onClick={handleDropdown}>
+                                {loading ? "":<img src={`http://localhost:5000/avatar/${currentUser.avatar}`} alt="add_video_icon"/>}
+                            </button>
+                            {isDropdown ? <Dropdown/>: ""}
                         </li>
                     </ul>
                 </div>

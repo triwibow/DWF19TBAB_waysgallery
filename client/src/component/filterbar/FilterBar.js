@@ -1,4 +1,5 @@
 import './filterbar.css';
+import search from '../../assets/icon/search.svg';
 const FilterBar = () => {
     return(
         <div className="filterbar-container">
@@ -10,7 +11,10 @@ const FilterBar = () => {
                     <span>today's post</span>
                 </div>
                 <div className="filterbar-search">
-                    <input type="text" placeholder="search" />
+                    <div className="search-input">
+                        <img src={search} alt="search" className="filter-search-icon" />
+                        <input type="text" placeholder="Search" />
+                    </div>
                 </div>
             </div>
         </div>

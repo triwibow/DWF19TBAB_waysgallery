@@ -8,6 +8,9 @@ const getPosts = async (req, res) => {
             attributes:{
                 exclude:['updatedAt','createdAt', 'UserId', 'userId'],
             },
+            order: [
+                ['id', 'DESC']
+            ],
         
             include:[
                 {

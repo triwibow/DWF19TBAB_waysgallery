@@ -3,8 +3,10 @@ import {useState, useContext} from 'react';
 import {useHistory} from 'react-router-dom';
 import {AppContext} from '../../context/AppContext';
 import { API, setAuthToken } from '../../config/api';
+import close from '../../assets/icon/close.png';
+import AlertError from './AlertError';
 
-const RegisterModal = () => {
+const RegisterModal = (props) => {
     const router = useHistory();
     const [state, dispatch] = useContext(AppContext);
     const [success, setSuccess] = useState(false);
@@ -65,7 +67,6 @@ const RegisterModal = () => {
                 setAuthToken(response.data.data.user.token);
                 router.push('/');
             } else {
-                alert(response.data.error.message);
                 setError({
                     status: true,
                     message: response.data.error.message
@@ -81,9 +82,15 @@ const RegisterModal = () => {
     }
 
     return(
-        <div className="modal-container" >
+        <div className="modal-container">
             <div className="modal-form-container">
+                <div className="close-modal">
+                    <button onClick={props.closeModal}>
+                        <img src={close} alt="close" />
+                    </button>
+                </div>
                 <h1>Register</h1>
+                {error.status && (<AlertError message={error.message} />)}
                 <form className="modal-form" onSubmit={handleSubmit}>
                     <input 
                         type="text" 
@@ -112,6 +119,7 @@ const RegisterModal = () => {
 
                     <button className="button-primary">Register</button>
                 </form>
+                <span className="modal-form-navigation">Already have an account ? Click <strong onClick={props.switchModal}>Here</strong></span>
             </div>
         </div>
     )

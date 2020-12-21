@@ -17,6 +17,18 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Art, {
         as:'arts'
       });
+
+      User.belongsToMany(models.Transaction, {
+        through:'TransactionUser',
+        foreignKey:'orderByUserId',
+        as:'orderBy'
+      });
+
+      User.belongsToMany(models.Transaction, {
+        through:'TransactionUser',
+        foreignKey:'orderToUserId',
+        as:'orderTo'
+      });
     }
   };
   User.init({

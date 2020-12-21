@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
-
 import './card.css';
+import { Link } from 'react-router-dom';
 
 const CardItem = (props) => {
     return(
@@ -9,7 +8,7 @@ const CardItem = (props) => {
                 <img src={`http://localhost:5000/photo/${props.post.photos[0].image}`} alt="post" />
             </Link>
         </div>
-    )
+    );
 }
 
 export default CardItem;

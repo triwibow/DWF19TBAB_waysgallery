@@ -28,7 +28,7 @@ const deleteFile = (dest, fileName) => {
         return;
     }
 
-    if(fileName === "default.jpg" && dest === "thumbnail"){
+    if(fileName === "default.jpg" && dest === "avatar"){
         console.log(true);
         return;
     }

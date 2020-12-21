@@ -12,12 +12,18 @@ import PrivateRoute from './route/PrivateRoute';
 import Landing from './pages/landing/Landing';
 import Home from './pages/home/Home';
 import Detail from './pages/detail/Detail';
-
+import Profile from './pages/profile/Profile';
+import EditProfile from './pages/profile/EditProfile';
+import User from './pages/user/User';
+import Hired from './pages/hired/Hired';
+import Transactions from './pages/transactions/Transactions';
+import SendProject from './pages/project/SendProject';
+import Project from './pages/project/Project';
+import Upload from './pages/upload/Upload';
 
 import {API, setAuthToken} from './config/api';
 import { AppContext } from './context/AppContext';
 import { useContext, useEffect } from 'react';
-import Upload from './pages/upload/Upload';
 
 const App = () => {
   const [state, dispatch] = useContext(AppContext);
@@ -68,6 +74,13 @@ const App = () => {
           <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/detail/:postId" component={Detail} />
           <PrivateRoute exact path="/upload" component={Upload} />
+          <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+          <PrivateRoute exact path="/user/:id" component={User} />
+          <PrivateRoute exact path="/hired/:id" component={Hired} />
+          <PrivateRoute exact path="/transactions" component={Transactions} />
+          <PrivateRoute exact path="/send/:transactionId" component={SendProject} />
+          <PrivateRoute exact path="/project/:transactionId" component={Project} />
 
         </Switch>
       </div>

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #f3f3f3;
+    background: #ffffff;
 }
 
 .App {
@@ -20,14 +20,13 @@ body {
     background: #2FC4B2;
     border-radius: 5px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 14px;
     line-height: 25px;
     /* identical to box height */
     color: #FFFFFF;
     position: relative;
     cursor: pointer;
-    z-index: 101;
 }
 
 .button-secondary {
@@ -36,15 +35,21 @@ body {
     background: #E7E7E7;
     border-radius: 5px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 14px;
     line-height: 25px;
     /* identical to box height */
     color: #000000;
     cursor: pointer;
     position: relative;
-    z-index: 101;
+}
 
+.button-primary:focus, .button-secondary:focus {
+    outline: none;
+}
+
+.button-primary:hover, .button-secondary:hover {
+    opacity: 0.8;
 }
 
 .link {

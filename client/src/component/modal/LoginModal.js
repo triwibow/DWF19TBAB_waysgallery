@@ -1,11 +1,12 @@
 import './modal.css';
-import {Link} from 'react-router-dom';
 import {useState, useContext} from 'react';
 import {useHistory} from 'react-router-dom';
 import {AppContext} from '../../context/AppContext';
 import { API, setAuthToken } from '../../config/api';
+import close from '../../assets/icon/close.png';
+import AlertError from './AlertError';
 
-const LoginModal = () => {
+const LoginModal = (props) => {
     const router = useHistory();
     const [state, dispatch] = useContext(AppContext);
     const [error, setError] = useState({
@@ -46,8 +47,6 @@ const LoginModal = () => {
                     status: true,
                     message: "Invalid login"
                 });
-
-                alert(response.data.error.message);
                 return false;
             }
 
@@ -66,7 +65,13 @@ const LoginModal = () => {
     return(
         <div className="modal-container" >
             <div className="modal-form-container">
+                <div className="close-modal">
+                    <button onClick={props.closeModal}>
+                        <img src={close} alt="close" />
+                    </button>
+                </div>
                 <h1>Sign In</h1>
+                {error.status && (<AlertError message={error.message} />)}
                 <form className="modal-form" onSubmit={handleSubmit}>
                     <input 
                         type="text" 
@@ -84,8 +89,8 @@ const LoginModal = () => {
                         autoComplete="off"
                         onChange={handleInputChange}
                     />
-
                     <button className="button-primary">Sign In</button>
+                    <span className="modal-form-navigation">Don't have an account ? Click <strong onClick={props.switchModal}>Here</strong></span>
                 </form>
             </div>
         </div>

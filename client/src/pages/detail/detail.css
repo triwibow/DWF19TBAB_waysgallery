@@ -9,7 +9,7 @@
 
 .detail-header {
     display: grid;
-    grid-template-columns: 40px 3fr 1fr;
+    grid-template-columns: 40px 3fr 2fr;
     align-items: center;
     column-gap: 20px;
 }
@@ -41,10 +41,14 @@
 
 .detail-title span:last-child {
     font-style: normal;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 14px;
     line-height: 19px;
     color: #000000;
+}
+
+.detail-title span:last-child:hover {
+    color: #2FC4B2;
 }
 
 .detail-image img {
@@ -84,4 +88,13 @@
     font-size: 14px;
     line-height: 19px;
     color: #000000;
+}
+
+.detail-nav {
+    text-align: right;
+}
+
+.detail-nav button {
+    width: 90px;
+    margin-left: 16px;
 }
